@@ -26,8 +26,9 @@ public class UserServiceImp implements UserService {
 
     @Override
     @Transactional
-    public Object getById(int id) {
+    public User getById(int id) {
         return dao.getById(id);
+
     }
 
     @Override

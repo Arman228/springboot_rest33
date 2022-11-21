@@ -29,13 +29,17 @@ public class UserDaoImp implements UserDao {
 
     @Override
     public void delete(int id) {
-        User user = entity.find(User.class, id);
-        entity.remove(user);
 
+        User user = entity.find(User.class, id);
+        if (user == null) {
+            throw new RuntimeException();
+        } else {
+            entity.remove(user);
+        }
     }
 
     @Override
-    public void edit( User user) {
+    public void edit(User user) {
         entity.merge(user);
 
 
